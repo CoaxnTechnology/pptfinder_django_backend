@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-g09wkvz#kt_+4_b_7i6fuudv546)552*ura1y=o=tbyzgp%_it
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+        'pptfinder-django-backend.onrender.com'
+    ]
 
 
 # Application definition
