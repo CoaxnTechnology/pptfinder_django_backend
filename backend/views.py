@@ -22,13 +22,12 @@ def api_save_data(request):
         try:
             data = json.loads(request.body)
             from backend.models import Pptdata
-            for item in data:
-                pptdata = Pptdata(
-                    keyword=item['keyword'],
-                    object=json.dumps(item['object']),
-                    timestamp=int(time.time())
-                )
-                pptdata.save()
+            pptdata = Pptdata(
+                keyword=item['keyword'],
+                object=json.dumps(item['object']),
+                timestamp=int(time.time())
+            )
+            pptdata.save()
             return JsonResponse({'status': 'success'})
         except Exception as e:
             return JsonResponse({'status': 'error', 'message': str(e)})
