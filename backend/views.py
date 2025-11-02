@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 import json
 import time
@@ -15,6 +16,7 @@ def api_check_keyword(request):
     exists = Pptdata.objects.filter(keyword=keyword).exists()
     return JsonResponse({'exists': exists, 'object': json.loads(Pptdata.objects.filter(keyword=keyword).first().object) if exists else None})
 
+@csrf_exempt
 def api_save_data(request):
     if request.method == 'POST':
         try:
