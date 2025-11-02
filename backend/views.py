@@ -23,8 +23,8 @@ def api_save_data(request):
             data = json.loads(request.body)
             from backend.models import Pptdata
             pptdata = Pptdata(
-                keyword=item['keyword'],
-                object=json.dumps(item['object']),
+                keyword=data['keyword'],
+                object=json.dumps(data['object']),
                 timestamp=int(time.time())
             )
             pptdata.save()
