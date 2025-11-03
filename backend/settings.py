@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ppt_finder',
+        'NAME': 'ppt_finder_ljqh',
         'USER': 'coaxn',
-        'PASSWORD': 'r0IijK6kjmKfgBaEbVERnsj57xkmtW7x',
-        'HOST': 'dpg-d449uigdl3ps73aoqvv0-a',
+        'PASSWORD': 'sUxwPv6LBAfIYq17lyeu0jfCQTPDnecV',
+        'HOST': 'dpg-d44aoe49c44c73c9h360-a',
         'PORT': '5432',
 
     }
