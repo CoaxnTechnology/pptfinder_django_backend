@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-g09wkvz#kt_+4_b_7i6fuudv546)552*ura1y=o=tbyzgp%_it
 DEBUG = True
 
 ALLOWED_HOSTS = [
-        'pptfinder-django-backend.onrender.com'
+        'pptfinder-django-backend.onrender.com',
+        'localhost',
+        '127.0.0.1'
     ]
 
 
@@ -77,8 +79,13 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ppt_finder',
+        'USER': 'coaxn',
+        'PASSWORD': 'r0IijK6kjmKfgBaEbVERnsj57xkmtW7x',
+        'HOST': 'dpg-d449uigdl3ps73aoqvv0-a',
+        'PORT': '5432',
+
     }
 }
 
