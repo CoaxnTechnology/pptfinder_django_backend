@@ -19,8 +19,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('keywords.php/', views.api_keywords, name='api_keywords'),
-    path('check_keyword.php/', views.api_check_keyword, name='api_check_keyword'),
-    path('save_data.php/', views.api_save_data, name='api_save_data'),
-    path('privacy_policy_pptfinder.html/', views.api_privacy_policy, name='api_privacy_policy'),
+    path('keywords.php', views.api_keywords, name='api_keywords'),
+    path('check_keyword.php', views.api_check_keyword, name='api_check_keyword'),
+    path('save_data.php', views.api_save_data, name='api_save_data'),
+    path('privacy_policy_pptfinder.html', views.api_privacy_policy, name='api_privacy_policy'),
 ]
