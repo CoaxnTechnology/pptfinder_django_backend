@@ -1,4 +1,7 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse, Http404
+from django.views.decorators.http import require_http_methods
+from django.contrib.staticfiles.storage import staticfiles_storage
+import os
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 import json
@@ -34,3 +37,22 @@ def api_save_data(request):
 
 def api_privacy_policy(request):
     return render(request, 'privacy_policy_pptfinder.html')
+
+@require_http_methods(["GET"])
+def serve_png(request, filename):
+    # Security: Ensure it ends with .png and doesn't contain path traversal
+    if not filename.endswith('.png') or '..' in filename or filename.startswith('/'):
+        raise Http404("Invalid file")
+
+    # Try to find the file using Django's staticfiles finder
+    try:
+        full_path = staticfiles_storage.path(filename)
+    except (ValueError, NotImplementedError):
+        # staticfiles_storage.path() may not be available (e.g. on S3 in prod)
+        raise Http404("Static file storage does not support path access")
+
+    if not os.path.isfile(full_path):
+        raise Http404("PNG not found")
+
+    with open(full_path, 'rb') as f:
+        return HttpResponse(f.read(), content_type='image/png')
