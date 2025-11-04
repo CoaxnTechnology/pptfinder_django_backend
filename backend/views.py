@@ -20,11 +20,10 @@ def api_check_keyword(request):
 def api_save_data(request):
     if request.method == 'POST':
         try:
-            data = json.loads(request.body)
             from backend.models import Pptdata
             pptdata = Pptdata(
-                keyword=data['keyword'],
-                object=json.dumps(data['object']),
+                keyword=request.POST.get('keyword'),
+                object=request.POST.get('object'),
                 timestamp=int(time.time())
             )
             pptdata.save()
