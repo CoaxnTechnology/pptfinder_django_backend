@@ -20,8 +20,13 @@ from . import views
 
 urlpatterns = [
     path('keywords.php/', views.api_keywords, name='api_keywords'),
+    path('keywords.php', views.api_keywords, name='api_keywords'),
     path('check_keyword.php/', views.api_check_keyword, name='api_check_keyword'),
+    path('check_keyword.php', views.api_check_keyword, name='api_check_keyword'),
     path('save_data.php/', views.api_save_data, name='api_save_data'),
+    path('save_data.php', views.api_save_data, name='api_save_data'),
     path('privacy_policy_pptfinder.html/', views.api_privacy_policy, name='api_privacy_policy'),
+    path('privacy_policy_pptfinder.html', views.api_privacy_policy, name='api_privacy_policy'),
     re_path(r'^(?P<filename>.+\.png)$/', views.serve_png, name='serve_png'),
+    re_path(r'^(?P<filename>.+\.png)$', views.serve_png, name='serve_png'),
 ]
